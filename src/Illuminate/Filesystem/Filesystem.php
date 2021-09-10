@@ -282,7 +282,7 @@ class Filesystem
 
         foreach ($paths as $path) {
             try {
-                if (! @unlink($path)) {
+                if (file_exists($path) && ! @unlink($path)) {
                     $success = false;
                 }
             } catch (ErrorException $e) {
